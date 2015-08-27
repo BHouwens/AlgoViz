@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="NaiveBayes">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Naive Bayes</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/module.js"></script>
+</head>
+<body>
+	<div class="container" ng-controller="MainCtrl">
+		<label for="sunny-yes">Sunny (Yes)</label>
+		<input id="sunny-yes" ng-model="sunny[0]" type="number">
+
+		<label for="sunny-yes">Total (Yes)</label>
+		<input id="total-yes" ng-model="yes" type="number">
+
+		<div class="p-of-x">P(x) = {{ (sunny[0] + sunny[1]) / (yes + no) | number: 2 }}</div>
+	</div>
+</body>
+</html>
