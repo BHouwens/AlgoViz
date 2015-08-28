@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Naive Bayes</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	<script src="js/angular.min.js"></script>
 	<script src="js/naive-bayes/module.js"></script>
 	<script src="js/naive-bayes/services.js"></script>
@@ -31,13 +32,17 @@
 				<div class="prior-class">P(c) = {{ pOfC | number: 2 }}</div>
 
 				<h2>P(c|x) = {{ posterior | number: 2 }}</h2>
+				<small>The probability that Jerry will go fishing when it's sunny</small>
 			</div>
 
 			<div class="freq-table">
 				<table>
 					<thead>
-						<tr><td>Went Fishing</td></tr>
 						<tr>
+							<td class="weather centre" rowspan="2">Weather</td>
+							<td class="choice centre" colspan="2">Went Fishing</td>
+						</tr>
+						<tr class="choice">
 							<td>Yes</td>
 							<td>No</td>
 						</tr>
@@ -45,17 +50,17 @@
 
 					<tbody>
 						<tr>
-							<td>Sunny</td>
+							<td class="weather">Sunny</td>
 							<td><input ng-model="sunny[0]" type="number" max="{{ yes }}" min="0"></td>
 							<td><input ng-model="sunny[1]" type="number" max="{{ no }}" min="0"></td>
 						</tr>
 						<tr>
-							<td>Overcast</td>
+							<td class="weather">Overcast</td>
 							<td><input ng-model="overcast[0]" type="number" max="{{ yes }}" min="0"></td>
 							<td><input ng-model="overcast[1]" type="number" max="{{ no }}" min="1"></td>
 						</tr>
 						<tr>
-							<td>Rainy</td>
+							<td class="weather">Rainy</td>
 							<td><input ng-model="rainy[0]" type="number" max="{{ yes }}" min="0"></td>
 							<td><input ng-model="rainy[1]" type="number" max="{{ no }}" min="1"></td>
 						</tr>
