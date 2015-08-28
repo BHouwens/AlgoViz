@@ -17,10 +17,10 @@ NaiveBayes.controller('MainCtrl', ['$scope', 'P', function($scope, P){
 		$scope.pOfX = P.OfX($scope.sunny, $scope.yes, $scope.no);
 		$scope.pOfXGivenC = P.OfXGivenC($scope.sunny, $scope.yes);
 		$scope.pOfC = P.OfC($scope.yes, $scope.yes, $scope.no);
-		$scope.posterior = P.Posterior($scope.sunny, $scope.yes, $scope.yes, $scope.no);
+		$scope.posterior = P.Posterior($scope.pOfXGivenC, $scope.pOfC, $scope.pOfX);
 	}
 
-	$scope.$watch('[sunny[0], yes]', function(newVal, oldVal, scope){
+	$scope.$watch('[sunny[0], overcast[0], rainy[0], yes]', function(newVal, oldVal, scope){
 		if (newVal){
 			scope.init();
 		}

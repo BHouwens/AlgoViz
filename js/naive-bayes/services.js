@@ -11,10 +11,10 @@ NaiveBayes.service('P', function(){
 		return choice / (yes + no);
 	}
 
-	this.Posterior = function(weather, choice, yes, no){
-		var numerator = (this.OfXGivenC(weather, choice)) * (this.OfC(choice, yes, no)),
-			denom = this.OfX(weather, yes, no);
-
-		return numerator / denom;
+	this.Posterior = function(likelihood, priorC, priorX){
+		var numerator = likelihood * priorC;
+		console.log(numerator);
+		console.log(priorX);
+		return numerator / priorX;
 	}
 });
