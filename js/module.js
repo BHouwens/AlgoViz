@@ -8,6 +8,7 @@ NaiveBayes.controller('MainCtrl', ['$scope', 'P', function($scope, P){
 	var yes = [$scope.sunny[0], $scope.overcast[0], $scope.rainy[0]],
 		no = [$scope.sunny[1], $scope.overcast[1], $scope.rainy[1]];
 
+	// Sums
 	$scope.yes = yes.reduce(function(x, y){return x + y});
 	$scope.no = no.reduce(function(x, y){return x + y});
 
