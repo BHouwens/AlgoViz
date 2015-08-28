@@ -7,11 +7,11 @@
 	<title>Naive Bayes</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<script src="js/angular.min.js"></script>
-	<script src="js/module.js"></script>
-	<script src="js/services.js"></script>
+	<script src="js/naive-bayes/module.js"></script>
+	<script src="js/naive-bayes/services.js"></script>
 </head>
 <body>
-	<div class="container" ng-controller="MainCtrl">
+	<div class="container">
 		<header>
 			<h1>Naive Bayes</h1>
 			<p>For this algorithm we're going to look at <b>Jerry</b>. Jerry likes <b>fishing</b> and we're going to assume that the weather has some influence on whether he'll participate in his favourite hobby or not on any given day. We have some prior data about Jerry's trips to the ocean, and we're going to use that to see whether he'll go today, tomorrow or any other day based on what the weather will be.</p>
@@ -19,18 +19,49 @@
 			<p>This means we give the algorithm a weather condition (you can choose sunny, overcast or rainy) and it will make a prediction based on what it knows about Jerry's fishing habits of the past.</p>
 		</header>
 
-		<div class="formula">
-			<label for="sunny-yes">Sunny (Yes)</label>
-			<input id="sunny-yes" ng-model="sunny[0]" type="number" max="{{ yes }}">
+		<div class="editors" ng-controller="MainCtrl" ng-init="init()">
+			<div class="formula">
+				<label for="sunny-yes">Days he went fishing and it was sunny: </label>
+				<input id="sunny-yes" ng-model="sunny[0]" type="number" max="{{ yes }}">
 
-			<label for="total-yes">Total (Yes)</label>
-			<input id="total-yes" ng-model="yes" type="number">
+				<p>Total days he went fishing: {{ yes }}</p>
 
-			<div class="likelihood">P(x|c) = {{ pOfXGivenC | number: 2 }}</div>
-			<div class="prior-predictor">P(x) = {{ pOfX | number: 2 }}</div>
-			<div class="prior-class">P(c) = {{ pOfC | number: 2 }}</div>
+				<div class="likelihood">P(x|c) = {{ pOfXGivenC | number: 2 }}</div>
+				<div class="prior-predictor">P(x) = {{ pOfX | number: 2 }}</div>
+				<div class="prior-class">P(c) = {{ pOfC | number: 2 }}</div>
 
-			<h2>P(c|x) = {{ posterior | number: 2 }}</h2>
+				<h2>P(c|x) = {{ posterior | number: 2 }}</h2>
+			</div>
+
+			<div class="freq-table">
+				<table>
+					<thead>
+						<tr><td>Went Fishing</td></tr>
+						<tr>
+							<td>Yes</td>
+							<td>No</td>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>Sunny</td>
+							<td><input ng-model="sunny[0]" type="number" max="{{ yes }}"></td>
+							<td>{{ sunny[1] }}</td>
+						</tr>
+						<tr>
+							<td>Overcast</td>
+							<td>{{ overcast[0] }}</td>
+							<td>{{ overcast[1] }}</td>
+						</tr>
+						<tr>
+							<td>Rainy</td>
+							<td>{{ rainy[0] }}</td>
+							<td>{{ rainy[1] }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
 </body>

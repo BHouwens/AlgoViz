@@ -3,12 +3,20 @@
   max-width: 1080px;
   margin: 0 auto; }
 
-.formula {
+.editors {
   margin-top: 40px; }
 
 h1 {
   text-transform: uppercase;
   font-size: 24px;
   text-align: center; }
+
+.formula {
+  float: left;
+  width: 50%; }
+
+table {
+  float: right;
+  width: 50%; }
 
 /*# sourceMappingURL=style.css.map */
