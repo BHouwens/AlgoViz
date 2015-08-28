@@ -7,20 +7,21 @@
 	<title>Naive Bayes</title>
 	<script src="js/angular.min.js"></script>
 	<script src="js/module.js"></script>
+	<script src="js/services.js"></script>
 </head>
 <body>
 	<div class="container" ng-controller="MainCtrl">
 		<label for="sunny-yes">Sunny (Yes)</label>
-		<input id="sunny-yes" ng-model="sunny[0]" type="number">
+		<input id="sunny-yes" ng-model="sunny[0]" type="number" max="{{ yes }}">
 
 		<label for="total-yes">Total (Yes)</label>
 		<input id="total-yes" ng-model="yes" type="number">
 
-		<div class="likelihood">P(x|c) = {{ sunny[0] / yes | number: 2 }}</div>
-		<div class="prior-predictor">P(x) = {{ (sunny[0] + sunny[1]) / (yes + no) | number: 2 }}</div>
-		<div class="prior-class">P(c) = {{ yes / (yes + no) | number: 2 }}</div>
+		<div class="likelihood">P(x|c) = {{ pOfXGivenC | number: 2 }}</div>
+		<div class="prior-predictor">P(x) = {{ pOfX | number: 2 }}</div>
+		<div class="prior-class">P(c) = {{ pOfC | number: 2 }}</div>
 
-		<h2>P(c|x) = {{ ((sunny[0] / yes) * ( yes / (yes + no) )) / ((sunny[0] + sunny[1]) / (yes + no)) | number : 2 }}</h2>
+		<h2>P(c|x) = {{ posterior | number : 2 }}</h2>
 	</div>
 </body>
 </html>
