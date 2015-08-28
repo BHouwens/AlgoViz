@@ -5,23 +5,33 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Naive Bayes</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
 	<script src="js/angular.min.js"></script>
 	<script src="js/module.js"></script>
 	<script src="js/services.js"></script>
 </head>
 <body>
 	<div class="container" ng-controller="MainCtrl">
-		<label for="sunny-yes">Sunny (Yes)</label>
-		<input id="sunny-yes" ng-model="sunny[0]" type="number" max="{{ yes }}">
+		<header>
+			<h1>Naive Bayes</h1>
+			<p>For this algorithm we're going to look at <b>Jerry</b>. Jerry likes <b>fishing</b> and we're going to assume that the weather has some influence on whether he'll participate in his favourite hobby or not on any given day. We have some prior data about Jerry's trips to the ocean, and we're going to use that to see whether he'll go today, tomorrow or any other day based on what the weather will be.</p>
 
-		<label for="total-yes">Total (Yes)</label>
-		<input id="total-yes" ng-model="yes" type="number">
+			<p>This means we give the algorithm a weather condition (you can choose sunny, overcast or rainy) and it will make a prediction based on what it knows about Jerry's fishing habits of the past.</p>
+		</header>
 
-		<div class="likelihood">P(x|c) = {{ pOfXGivenC | number: 2 }}</div>
-		<div class="prior-predictor">P(x) = {{ pOfX | number: 2 }}</div>
-		<div class="prior-class">P(c) = {{ pOfC | number: 2 }}</div>
+		<div class="formula">
+			<label for="sunny-yes">Sunny (Yes)</label>
+			<input id="sunny-yes" ng-model="sunny[0]" type="number" max="{{ yes }}">
 
-		<h2>P(c|x) = {{ posterior | number : 2 }}</h2>
+			<label for="total-yes">Total (Yes)</label>
+			<input id="total-yes" ng-model="yes" type="number">
+
+			<div class="likelihood">P(x|c) = {{ pOfXGivenC | number: 2 }}</div>
+			<div class="prior-predictor">P(x) = {{ pOfX | number: 2 }}</div>
+			<div class="prior-class">P(c) = {{ pOfC | number: 2 }}</div>
+
+			<h2>P(c|x) = {{ posterior | number : 2 }}</h2>
+		</div>
 	</div>
 </body>
 </html>
