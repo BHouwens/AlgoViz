@@ -13,8 +13,6 @@ NaiveBayes.service('P', function(){
 
 	this.Posterior = function(likelihood, priorC, priorX){
 		var numerator = likelihood * priorC;
-		console.log(numerator);
-		console.log(priorX);
 		return numerator / priorX;
 	}
 });

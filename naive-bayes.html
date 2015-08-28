@@ -46,18 +46,18 @@
 					<tbody>
 						<tr>
 							<td>Sunny</td>
-							<td><input ng-model="sunny[0]" type="number" max="{{ yes }}"></td>
-							<td><input ng-model="sunny[1]" type="number" max="{{ no }}"></td>
+							<td><input ng-model="sunny[0]" type="number" max="{{ yes }}" min="0"></td>
+							<td><input ng-model="sunny[1]" type="number" max="{{ no }}" min="0"></td>
 						</tr>
 						<tr>
 							<td>Overcast</td>
-							<td><input ng-model="overcast[0]" type="number" max="{{ yes }}"></td>
-							<td><input ng-model="overcast[1]" type="number" max="{{ no }}"></td>
+							<td><input ng-model="overcast[0]" type="number" max="{{ yes }}" min="0"></td>
+							<td><input ng-model="overcast[1]" type="number" max="{{ no }}" min="1"></td>
 						</tr>
 						<tr>
 							<td>Rainy</td>
-							<td><input ng-model="rainy[0]" type="number" max="{{ yes }}"></td>
-							<td><input ng-model="rainy[1]" type="number" max="{{ no }}"></td>
+							<td><input ng-model="rainy[0]" type="number" max="{{ yes }}" min="0"></td>
+							<td><input ng-model="rainy[1]" type="number" max="{{ no }}" min="1"></td>
 						</tr>
 					</tbody>
 				</table>
