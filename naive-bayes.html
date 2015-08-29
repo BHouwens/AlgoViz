@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Naive Bayes</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/c3.min.css" type="text/css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 	<script src="js/angular.min.js"></script>
+	<script src="js/d3.min.js"></script>
+	<script src="js/c3.min.js"></script>
 	<script src="js/naive-bayes/module.js"></script>
 	<script src="js/naive-bayes/services.js"></script>
 </head>
@@ -27,11 +30,11 @@
 
 				<p>Total days he went fishing: {{ yes }}</p>
 
-				<div class="likelihood">P(x|c) = {{ pOfXGivenC | number: 2 }}</div>
-				<div class="prior-predictor">P(x) = {{ pOfX | number: 2 }}</div>
-				<div class="prior-class">P(c) = {{ pOfC | number: 2 }}</div>
+				<div class="likelihood">P(x|c) = {{ sunnyPOfXGivenC | number: 2 }}</div>
+				<div class="prior-predictor">P(x) = {{ sunnyPOfX | number: 2 }}</div>
+				<div class="prior-class">P(c) = {{ sunnyPOfC | number: 2 }}</div>
 
-				<h2>P(c|x) = {{ posterior | number: 2 }}</h2>
+				<h2>P(c|x) = {{ sunnyPosterior | number: 2 }}</h2>
 				<small>The probability that Jerry will go fishing when it's sunny</small>
 			</div>
 
@@ -67,7 +70,11 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
+
+			<div id="all-weather">
+			</div>
+
+		</div><!-- end MainCtrl -->
 	</div>
 </body>
 </html>

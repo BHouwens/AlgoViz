@@ -23,7 +23,7 @@ NaiveBayes.service('AllWeather', function(){
 	            bindto: '#'+id,
 	            data: {
 	                columns: [data],
-	                types: {'probability':'area-spline'}
+	                types: {'Probability':'area-spline'}
 	            }
 	        });
 	        
