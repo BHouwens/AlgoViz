@@ -16,3 +16,17 @@ NaiveBayes.service('P', function(){
 		return numerator / priorX;
 	}
 });
+
+NaiveBayes.service('AllWeather', function(){
+	this.chart = function(data, id){
+		var chart = c3.generate({
+	            bindto: '#'+id,
+	            data: {
+	                columns: [data],
+	                types: {'probability':'area-spline'}
+	            }
+	        });
+	        
+	        return chart;
+	}
+});
