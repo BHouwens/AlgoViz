@@ -24,6 +24,13 @@ NaiveBayes.service('AllWeather', function(){
 	            data: {
 	                columns: [data],
 	                types: {'Probability':'area-spline'}
+	            },
+	            axis: {
+	            	y: {
+	            		max: 1,
+	            		min: 0,
+	            		padding: {top: 0, bottom: 0}
+	            	}
 	            }
 	        });
 	        

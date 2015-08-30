@@ -29,7 +29,7 @@ NaiveBayes.controller('MainCtrl', ['$scope', 'P', 'AllWeather', function($scope,
 		$scope.rainyPosterior = P.Posterior($scope.rainyPOfXGivenC, $scope.sunnyPOfC, $scope.rainyPOfX);
 
 		// Chart variables
-		$scope.data = ['Probability', $scope.sunnyPosterior, $scope.overcastPosterior, $scope.rainyPosterior];
+		$scope.data = ['Probability', $scope.rainyPosterior, $scope.overcastPosterior, $scope.sunnyPosterior];
 		$scope.chart = AllWeather.chart($scope.data, 'all-weather');
 	}
 

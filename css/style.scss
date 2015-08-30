@@ -39,6 +39,7 @@ h2{
 .formula{
 	float: left;
 	width: 50%;
+	margin-bottom: 70px;
 }
 
 .weather{
@@ -79,4 +80,37 @@ small{
 
 .centre{
 	text-align: center;
+}
+
+#all-weather{
+	width: 50%;
+	clear: both;
+}
+
+.icons{
+	width: 50%;
+	margin-bottom: 80px;
+	margin-top: -20px;
+
+	img{
+		float: left;
+	}
+}
+
+#rainy{
+	margin-left: 15px;
+}
+
+#overcast{
+	margin-left: 43%;
+}
+
+#sunny{
+	float: right;
+}
+
+.c3-legend-item-Probability,
+.c3-axis.c3-axis-x .tick,
+.c3-tooltip th{
+	display: none;
 }
