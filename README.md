@@ -1,2 +1,6 @@
 # AlgoViz
-Interactive, visual ways to represent probabilistic and statistical algorithms
+Interactive, visual ways to represent machine learning and statistical algorithms.
+
+So far we have:
+
+- Naive Bayes
