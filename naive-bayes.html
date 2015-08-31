@@ -59,7 +59,7 @@
 						<tr>
 							<td class="weather">Overcast</td>
 							<td><input ng-model="overcast[0]" type="number" max="{{ yes }}" min="0"></td>
-							<td><input ng-model="overcast[1]" type="number" max="{{ no }}" min="1"></td>
+							<td><input ng-model="overcast[1]" type="number" max="{{ no }}" min="0"></td>
 						</tr>
 						<tr>
 							<td class="weather">Rainy</td>
@@ -80,6 +80,22 @@
 			</div>
 
 		</div><!-- end MainCtrl -->
+
+		<p>
+			Obviously, there are a number of insights we can glean from these representations of the Naive Bayes algorithm, even if we don't have a mathematics background, but here are a few off the bat:
+		</p>
+
+		<ol>
+			<li>
+			Given a possible class and test entry, the algorithm only ever considers data from that class and that entry. You can test this out: change the <b>overcast</b> or <b>rainy</b> data entries and notice that nothing changes in the final probability of fishing on a sunny day. So Naive Bayes will never account for other possible classes in its calculations.
+			</li>
+			<li>
+			Naive Bayes suffers if there is little data to work from. Try make <b>sunny</b> data a 1 for <b>yes</b> and a 0 for <b>no</b> and check out the probability. The algorithm assumes that because Jerry went fishing on the one sunny day we know about, he will go fishing for <i>all</i> sunny days, which is almost certainly not true.
+			</li>
+			<li>
+			The algorithm does, however, give us a nice picture of Jerry's fishing habits when we plot all possibilities in a chart.
+			</li>
+		</ol>
 	</div>
 </body>
 </html>
