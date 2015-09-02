@@ -87,10 +87,10 @@
 
 		<ol>
 			<li>
-			Given a possible class and test entry, the algorithm only ever considers data from that class and that entry. You can test this out: change the <b>overcast</b> or <b>rainy</b> data entries and notice that nothing changes in the final probability of fishing on a sunny day. So Naive Bayes will never account for other possible classes in its calculations.
+			Given a possible class and test entry, the algorithm only ever considers data from that class and that entry. You can test this out: change the <b>overcast</b> or <b>rainy</b> data entries and notice that nothing changes in the final probability of fishing on a sunny day, even though the internals of the algorithm <i>do</i> change. So Naive Bayes will never account for other possible classes in its calculations of a final probability.
 			</li>
 			<li>
-			Naive Bayes suffers if there is little data to work from. Try make <b>sunny</b> data a 1 for <b>yes</b> and a 0 for <b>no</b> and check out the probability. The algorithm assumes that because Jerry went fishing on the one sunny day we know about, he will go fishing for <i>all</i> sunny days, which is almost certainly not true.
+			Naive Bayes suffers if there is little data to work from (this is true of all machine learning algorithms). Try make <b>sunny</b> data a 1 for <b>yes</b> and a 0 for <b>no</b> and check out the probability. The algorithm assumes that because Jerry went fishing on the one sunny day we know about, he will go fishing for <i>all</i> sunny days, which is almost certainly not true.
 			</li>
 			<li>
 			The algorithm does, however, give us a nice picture of Jerry's fishing habits when we plot all possibilities in a chart.
