@@ -10,8 +10,8 @@ LinearSVM.controller('MainCtrl', ['$scope', 'Plot', function($scope, Plot){
 	}
 
 	/** Fill $scope.data with data **/
-	$scope.genData = function(){
-		for (var i = 0; i < $scope.dataEntries; i++){
+	$scope.genData = function(num){
+		for (var i = 0; i < num; i++){
 			var entry = {}, axes = [], sum = 0;
 
 			for (var j = 0; j < 2; j++){
@@ -34,8 +34,14 @@ LinearSVM.controller('MainCtrl', ['$scope', 'Plot', function($scope, Plot){
 
 	/** Watches **/
 	$scope.$watch('dataEntries', function(newVal, oldVal, scope){
-		if (newVal){
-			scope.genData();
+		if (newVal > oldVal){
+			var num = newVal - oldVal;
+			scope.genData(num);
+		}else{
+			var num = oldVal - newVal;
+			for (var i = 0; i < num; i++){
+				scope.data.splice(scope.data.length - 1, 1);
+			}
 		}
 	});
 }]);
