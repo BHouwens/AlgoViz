@@ -1,7 +1,6 @@
 var LinearSVM = angular.module('LinearSVM', []);
 
 LinearSVM.controller('MainCtrl', ['$scope', 'Plot', function($scope, Plot){
-	$scope.data = [];
 	$scope.dataEntries = 6;
 	$scope.supportVectors = 3;
 
@@ -28,6 +27,7 @@ LinearSVM.controller('MainCtrl', ['$scope', 'Plot', function($scope, Plot){
 			$scope.data.push(entry);
 		}
 
+		console.log($scope.data);
 		$scope.chart = Plot.create($scope.data, '#plot');
 	}
 
@@ -43,6 +43,9 @@ LinearSVM.controller('MainCtrl', ['$scope', 'Plot', function($scope, Plot){
 			for (var i = 0; i < num; i++){
 				scope.data.splice(scope.data.length - 1, 1);
 			}
+		}else{
+			scope.data = [];
+			scope.genData(scope.dataEntries);
 		}
 	});
 }]);
