@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="LinearSVM">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Linear Support Vector Machine</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+	<link rel="stylesheet" href="css/c3.min.css" type="text/css">
+	<script src="js/angular.min.js"></script>
+	<script src="js/d3.min.js"></script>
+	<script src="js/linear-svm/module.js"></script>
+	<script src="js/linear-svm/services.js"></script>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Linear SVM</h1>
+			<p>Linear Support Vector Machines operate differently to, say, a Naive Bayes algorithm. The method chooses a particular number of <b>support vectors</b> and then checks their label (or class). It then draws a line (or <b>hyperplane</b>) between them such that the distance between this line and the support vectors is the greatest (or maximised).</p>
+
+			<p>You can play with the data points on the chart as well as in the mathematical notation to see what kind of effect this has on the final, dividing hyperplane (also called a <b>decision boundary</b>).</p>
+		</header>
+
+		<div class="editors" ng-controller="MainCtrl">
+			<h2>Edits</h2>
+			<label for="data-entries">Number of data entries: </label>
+			<input type="number" ng-model="dataEntries" id="data-entries" min="5" max="15"><br>
+			<label for="support-vectors">Number of support vectors: </label>
+			<input type="number" ng-model="supportVectors" id="support-vectors" min="3" max="9">
+
+			<svg id="plot"></svg>
+		</div>
+	</div>
+</body>
+</html>
