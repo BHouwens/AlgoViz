@@ -37,7 +37,8 @@ LinearSVM.controller('MainCtrl', ['$scope', 'Plot', function($scope, Plot){
 		if (newVal > oldVal){
 			var num = newVal - oldVal;
 			scope.genData(num);
-		}else{
+		}else
+		if (newVal < oldVal){
 			var num = oldVal - newVal;
 			for (var i = 0; i < num; i++){
 				scope.data.splice(scope.data.length - 1, 1);
