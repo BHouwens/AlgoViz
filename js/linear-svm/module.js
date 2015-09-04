@@ -1,8 +1,8 @@
 var LinearSVM = angular.module('LinearSVM', []);
 
-LinearSVM.controller('MainCtrl', ['$scope', 'Plot', function($scope, Plot){
+LinearSVM.controller('MainCtrl', ['$scope', 'Plot', 'SupportVectors', function($scope, Plot, SupportVectors){
 	$scope.dataEntries = 6;
-	$scope.supportVectors = 3;
+	$scope.supportVectors = [];
 
 	function getRand(min, max){
 		return Math.round(Math.random() * (max - min) + min);
@@ -10,16 +10,17 @@ LinearSVM.controller('MainCtrl', ['$scope', 'Plot', function($scope, Plot){
 
 	/** Fill $scope.data with data **/
 	$scope.genData = function(num){
+		var pos = 0;
+
 		for (var i = 0; i < num; i++){
-			var entry = {}, axes = [], sum = 0;
+			var entry = {}, axes = [];
 
-			for (var j = 0; j < 2; j++){
-				axes.push(getRand(2, 15));
-			}
-
-			if (axes[0] > 8){
+			if (pos < Math.round(num / 2)){
+				axes = [getRand(9, 15), getRand(2, 15)];
 				entry['label'] = 'pos';
+				pos++;
 			}else{
+				axes = [getRand(2, 7), getRand(2, 15)];
 				entry['label'] = 'neg';
 			}
 
@@ -27,8 +28,12 @@ LinearSVM.controller('MainCtrl', ['$scope', 'Plot', function($scope, Plot){
 			$scope.data.push(entry);
 		}
 
+		console.log('Data:');
 		console.log($scope.data);
-		$scope.chart = Plot.create($scope.data, '#plot');
+
+		$scope.supportVectors = SupportVectors.find($scope.data);
+		console.log('Support Vectors:');
+		console.log($scope.supportVectors);
 	}
 
 

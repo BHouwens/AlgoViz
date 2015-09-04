@@ -67,3 +67,33 @@ LinearSVM.service('Plot', function(){
 		chart.build(data, element);
 	}
 });
+
+LinearSVM.service('SupportVectors', function(){
+	this.find = function(data){
+		var supportVectors = [],
+			posCount = 0;
+
+		for (var i = 0; i < data.length; i++){
+			var xCoord = data[i]['axes'][0];
+
+			if (supportVectors.length < 3){
+				data[i]['vector'] = true;
+				supportVectors.push(data[i]);
+			}else{
+				for (var j = 0; j < supportVectors.length; j++){
+					var compare = Math.abs(8 - supportVectors[j]['axes'][0]),
+						original = Math.abs(8 - xCoord);
+
+					if (original < compare){
+						supportVectors.splice(j, 1);
+
+						data[i]['vector'] = true;
+						supportVectors.push(data[i]);
+					}
+				}
+			}
+		}
+
+		return supportVectors;
+	}
+});
